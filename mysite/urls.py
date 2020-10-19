@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from my_app.views import (
-    indexView,
-    postFriend,
+    FriendView,
+    checkNickName,
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', indexView),
-    path('post/ajax/friend', postFriend, name = "post_friend"),
+    path('', FriendView.as_view(), name='friend_cbv'),
+    path('get/ajax/validate/nickname', checkNickName, name = "validate_nickname"),
 ]
